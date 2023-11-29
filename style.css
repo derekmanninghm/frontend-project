@@ -1,0 +1,167 @@
+body{
+    background-color: #1b1b1f;
+}
+
+.iconOption{
+    position: absolute;
+    justify-content: space-between;
+    width: 100px;
+    height: 100px;
+    z-index: 20;
+}
+/*
+#eyepatch{  background-image: url("images/eyepatchPNG.png") }
+#glasses{  background-image: url("images/glassesPNG.png") }
+#glasses2{  background-image: url("images/glassesPNG.png") }
+#glasses3{  background-image: url("images/glassesPNG.png") }
+#glasses4{  background-image: url("images/glassesPNG.png") }
+#glasses5{  background-image: url("images/glassesPNG.png") }
+#sunglasses{  background-image: url("images/glassesPNG.png") }
+#sunglasses2{  background-image: url("images/glassesPNG.png") }
+*/
+#charCreator {
+    /*visibility*/
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 1400px;
+    height: 95%;
+    background-color: rgba(51, 49, 54, 0.95);
+    z-index: 20;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+#currChar {
+    width: 300px;
+    height: 330px;
+    top: 2%;
+    right: 110px;
+    position: absolute;
+    background-size: 100%;
+    text-align: center;
+    text-shadow: 3px 2px 3px rgba(255,255,255,.2);
+}
+
+#currCharText {
+    position: relative;
+    top: 6px;
+}
+
+.categoryTitles {
+    position: relative;
+    color: whitesmoke;
+}
+
+#head {
+    position: relative;
+    top: 40px;
+}
+#faces {
+    position: relative;
+    top: 70px;
+}
+#clothingColor {
+    position: relative;
+    top: 20px;
+}
+#facialHair {
+    position: relative;
+    top: 110px;
+}
+
+#accessories{
+    position: relative;
+    top: 20px;
+}
+
+#headContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    margin: 0;
+    position: relative;
+    width: 1300px;
+    top: 60px;
+    left: 50px;
+    height: 320px;
+    background-color: red;
+}
+
+#clothsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    margin: 0;
+    position: relative;
+    width: 800px;
+    top: 20px;
+    left: 50px;
+    height: 100px;
+    background-color: blueviolet;
+    z-index: 1;
+}
+
+#skinColorContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    width: 500px;
+    top: 20px;
+    left: 50px;
+    height: 100px;
+    background-color: red;
+}
+
+#faceContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 1300px;
+    top: 90px;
+    left: 50px;
+    height: 220px;
+    background-color: red;
+}
+
+#facialHairContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 1300px;
+    top: 120px;
+    left: 50px;
+    height: 120px;
+    background-color: red;
+}
+
+#accessoryContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 800px;
+    top: 20px;
+    left: 50px;
+    height: 120px;
+    background-color: red;
+}
