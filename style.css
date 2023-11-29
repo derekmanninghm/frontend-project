@@ -7,16 +7,13 @@ body{
     height: 100px;
     z-index: 20;
 }
-/*
-#eyepatch{  background-image: url("images/eyepatchPNG.png") }
-#glasses{  background-image: url("images/glassesPNG.png") }
-#glasses2{  background-image: url("images/glassesPNG.png") }
-#glasses3{  background-image: url("images/glassesPNG.png") }
-#glasses4{  background-image: url("images/glassesPNG.png") }
-#glasses5{  background-image: url("images/glassesPNG.png") }
-#sunglasses{  background-image: url("images/glassesPNG.png") }
-#sunglasses2{  background-image: url("images/glassesPNG.png") }
-*/
+
+#randomize {
+    position: relative;
+    top: 20px;
+    background-color: #343445;
+}
+
 #charCreator {
     /*visibility*/
     top: 0;
