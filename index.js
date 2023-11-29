@@ -45,80 +45,56 @@ var facialHairsArr =
         'short5', 'turban', 'twists'
     ];
 
-
-    //skin color
-    for(var i = 0; i < 3; i++) {
-        var apiURL = 'https://api.dicebear.com/7.x/open-peeps/svg?size=100&seed=John';
-        apiURL += `&skinColor=${skinColorArr[i]}`;
-        $.get(`${apiURL}`, (d)=> {
-            $("#skinColorContainer").append($("<div>").html(d.firstChild));
-        })
+const currentCharacterOptions = {
+    seed: "John",
+    size: '300',
+    skinColor: 'edb98a',
+    accessories: 'eyepatch',
+    accessoriesProbability: `100`,
+    clothingColor: '8fa7df',
+    head: 'hatBeanie',
+    face: 'driven',
+    facialHair: null,
+    facialHairrobability: null,
 }
 
-for(var i = 0; i < accessoriesArr.length; i++) {
-    var apiURL = 'https://api.dicebear.com/7.x/open-peeps/svg?size=100&seed=John';
-    if(i !== 0) {
-        apiURL += `&accessories=${accessoriesArr[i]}&accessoriesProbability=100`;
+function generateApiURL() {
+    var currentApiUrl = `https://api.dicebear.com/7.x/open-peeps/svg?`
+    (currentCharacterOptions.accessories != null)
+    return currentApiUrl;
+}
+
+function displayAccessoryOptions() {
+        for(var i= 0; i<$("#accessoryContainer").get(0).children.length; i++) {
+
+            var currentAccessory = $("#accessoryContainer").get(0).children[i].id
+            var currentAccessoryString;
+            currentAccessoryString =  `accessories=${currentAccessory}&accessoriesProbability=100`;
+            $(`#${$("#accessoryContainer").get(0).children[i].id}`).css("background-image", `url("https://api.dicebear.com/7.x/open-peeps/svg?${currentAccessoryString}")`)
         
-        $.get(`${apiURL}`, (d)=> {
-            $("#accessoryContainer").append($("<div>").html(d.firstChild));
-        })
+        }     
+}    
     
-    }
+function generateCharOptions() {
+    displayAccessoryOptions();
 }
+    
+generateCharOptions();
+    //var seed = getSeed();
+    //var size = getSize();
+    //var skinColor = getSkinColor();
+    //var accessories = getAccessories();
+    //var accessoriesProbability= getAccessoriesProbability();
+    //var clothingColor = getClothingColor();
+    //var head = getHead();
+    //var face = getFace();
+    //var facialHair = getFacialHair();
+    //var facialHairProbability = getfacialHairProbability();
+    
+/*
 
-//heads
-for(var i = 0; i < headsArr.length; i++) {
-    var apiURL = 'https://api.dicebear.com/7.x/open-peeps/svg?size=100&seed=John';
-    if(i !== 0) {
-        apiURL += `&head=${headsArr[i]}`;
-
-        $.get(`${apiURL}`, (d)=> {
-            $("#headContainer").append($("<div>").html(d.firstChild));
-        })
-    }
-}
-
-//faces
-for(var i = 0; i < facesArr.length; i++) {
-    var apiURL = 'https://api.dicebear.com/7.x/open-peeps/svg?size=100&seed=John';
-    if(i !== 0) {
-        apiURL += `&face=${facesArr[i]}`;
-
-        $.get(`${apiURL}`, (d)=> {
-            $("#faceContainer").append($("<div>").html(d.firstChild));
-        })
-    }
-}
-
-//facialHair
-for(var i = 0; i < facialHairsArr.length; i++) {
-    var apiURL = 'https://api.dicebear.com/7.x/open-peeps/svg?size=100&seed=John';
-    if(i !== 0) {
-        apiURL += `&facialHair=${facialHairsArr[i]}&facialHairProbability=100`;
-
-        $.get(`${apiURL}`, (d)=> {
-            $("#facialHairContainer").append($("<div>").html(d.firstChild));
-        })
-    }
-}
-
-//clothsColors
-for(var i = 0; i < clothingColorsArr.length; i++) {
-    var apiURL = 'https://api.dicebear.com/7.x/open-peeps/svg?size=100&seed=John';
-    if(i !== 0) {
-        apiURL += `&clothingColor=${clothingColorsArr[i]}`;
-        
-        $.get(`${apiURL}`, (d)=> {
-            $("#clothsContainer").append($("<div>").html(d.firstChild));
-        })
-    }
-}
-
-///////////////////////////////////////////////////////////////
-
-
-
+displayAccessoryOptions()
+*/
 
 
 
