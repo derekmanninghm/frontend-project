@@ -150,7 +150,8 @@ function generateClothingOptions() {
 
 function generateAccessoryOptions() {
     for(var i = 0; i < accessoriesArr.length; i++) {
-        $("#accessoryContainer").append($("<button>").attr("id", accessoriesArr[i]).attr("class", "iconOption").text(accessoriesArr[i]));
+        //$("#accessoryContainer").append($("<button>").attr("id", accessoriesArr[i]).attr("class", "iconOption").text(accessoriesArr[i]));
+        $("#accessoryContainer").append($("<button>").attr("id", accessoriesArr[i]).attr("class", "iconOption").css("background-image", `url("images/accessoryPNGS/${accessoriesArr[i]}.png")`));
     
         $(`#${accessoriesArr[i]}`).on("click", (e)=> {
             currentCharacterOptions.accessories = (e.target.id)
