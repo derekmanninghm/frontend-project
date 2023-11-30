@@ -100,6 +100,26 @@ var Position = function(x, y) {
     document.removeEventListener("keydown", this.keyPressHandler, false);
     this.setMessage(text);
     this.mazeContainer.classList.add("finished");
+    //$(this.mazeContainer.parentElement).append($("<div>OUDJSKDJA</div>").css("width", "200px").css("height", "200px").css("background-color", "red"))
+    $("#level_container").append($("<button>next level</button>").attr("class", "nextLevelBtn").attr("id", "nextLevelBtn"))
+    
+    $("#nextLevelBtn").on("click", (e)=> {
+
+        var mazeNumId = $("#maze").get(0).parentElement.id;
+        var mazeNum = mazeNumId.slice(5);
+        var nextMazeNum = (Number(mazeNum) + 1).toString();
+
+        if(nextMazeNum == 26) {
+            alert("What? \n YOU WANT MORE LEVELS??? \n but... you already beat the game champ.. you dont have to do this.... \n");
+            alert("Fine, you may have more levels, but you will start at the beginning");
+            //$("#level_container").append($("<div>")).attr("id", "beatGameScreen").text("What? \n YOU WANT MORE LEVELS??? \n You already beat the game champ give it a break");
+            nextMazeNum = "1";
+        }
+
+        $(`#lvlBtn_${nextMazeNum}`).click();
+         $("#nextLevelBtn").remove()
+     })
+
   };
   
   Mazing.prototype.heroWins = function() {
