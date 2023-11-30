@@ -85,7 +85,7 @@ function generateCurrCharIcon() {
 
     if(currentCharacterOptions.skinColor !== 'none') apiURL += `&skinColor=${currentCharacterOptions.skinColor}`;
 
-    ///////////////////////////////////////////////////////// accessory options////////////////////////////////////////////////////////////////////////
+    //--------------------------------------------------------------------- accessory options ------------------------------------------------------------------//
     if(currentCharacterOptions.accessories !== 'none') {
         if(currentCharacterOptions.accessories == accessoriesArr) {
             apiURL += `&accessories=${currentCharacterOptions.accessories[Math.floor(Math.random() * (8 - 1) + 1)]}`;
@@ -95,22 +95,22 @@ function generateCurrCharIcon() {
             apiURL += `&accessoriesProbability=100`;
         }
     }
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------//
 
     if(currentCharacterOptions.clothingColor !== 'none')    apiURL += `&clothingColor=${currentCharacterOptions.clothingColor}`
     
-    ////////////////////////////////////////////////////// head options ///////////////////////////////////////////////////////////////////////////////
+    //------------------------------------------------------ head options ---------------------------------------------------------------------------------//
     //if(currentCharacterOptions.head !== 'none')apiURL += `&head=${currentCharacterOptions.head}`
     if(currentCharacterOptions.head == headsArr) {
             apiURL += `&head=${headsArr[Math.floor(Math.random() * (43 - 0) + 0)]}`;
     } else {
             apiURL += `&head=${currentCharacterOptions.head}`;
     }
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //--------------------------------------------------------------------------------------------------------------------------------------------------//
     
     if(currentCharacterOptions.face !== 'none')apiURL += `&face=${currentCharacterOptions.face}`
     
-    ////////////////////////////////////////////////////////// facial hair options /////////////////////////////////////////////////////////////////////
+    //------------------------------------------------------------ facial hair options -----------------------------------------------------------------//
     if(currentCharacterOptions.facialHair !== 'none') {
         if(currentCharacterOptions.facialHair == facialHairsArr) {
             apiURL += `&facialHair=${currentCharacterOptions.facialHair[Math.floor(Math.random() * (15 - 1) +1)]}`;
@@ -120,7 +120,7 @@ function generateCurrCharIcon() {
             apiURL += `&facialHairProbability=100`;
         }
     }
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //-----------------------------------------------------------------------------------------------------------------------------------------------------//
 
     $.get(`${apiURL+"&flip=true"}`, (d)=> {
         $("#currCharIcon").prepend(d.firstChild);
@@ -144,7 +144,6 @@ function generateFaceOptions() {
 
 function generateFacialHairOptions() {
     for(var i = 0; i < facialHairsArr.length; i++) {
-        //$("#facialHairContainer").append($("<button>").attr("id", facialHairsArr[i]).attr("class", "iconOption").text(facialHairsArr[i]));
         $("#facialHairContainer").append($("<button>").attr("id", facialHairsArr[i]).attr("class", "iconOption").css("background-image", `url("images/facialHairPNGS/${facialHairsArr[i]}.png")`));
         
         $(`#${facialHairsArr[i]}`).on("click", (e)=> {
@@ -158,7 +157,6 @@ function generateFacialHairOptions() {
 
 function generateHeadOptions() {
     for(var i = 0; i < headsArr.length; i++) {
-        //$("#headContainer").append($("<button>").attr("id", headsArr[i]).attr("class", "iconOption").text(headsArr[i]));
         $("#headContainer").append($("<button>").attr("id", headsArr[i]).attr("class", "iconOption").css("background-image", `url("images/headPNGS/${headsArr[i]}.png")`));
         $(`#${headsArr[i]}`).on("click", (e)=> {
             currentCharacterOptions.head = (e.target.id)
@@ -169,7 +167,6 @@ function generateHeadOptions() {
 
 function generateSkinOptions() {
     for(var i = 0; i < skinColorArr.length; i++) {
-        //$("#skinColorContainer").append($("<button>").attr("id", skinColorArr[i]).attr("class", "iconOption").text(skinColorArr[i]));
         $("#skinColorContainer").append($("<button>").attr("id", skinColorArr[i]).attr("class", "iconOption").css("background-color", `#${skinColorArr[i]}`));
         
         $(`#${skinColorArr[i]}`).on("click", (e)=> {
@@ -182,7 +179,6 @@ function generateSkinOptions() {
 
 function generateClothingOptions() {
     for(var i = 0; i < clothingColorsArr.length; i++) {
-        //$("#clothsContainer").append($("<button>").attr("id", clothingColorsArr[i]).attr("class", "iconOption").text(clothingColorsArr[i]));
         $("#clothsContainer").append($("<button>").attr("id", clothingColorsArr[i]).attr("class", "iconOption").css("background-color", `#${clothingColorsArr[i]}`));
 
         $(`#${clothingColorsArr[i]}`).on("click", (e)=> {
@@ -195,7 +191,6 @@ function generateClothingOptions() {
 
 function generateAccessoryOptions() {
     for(var i = 0; i < accessoriesArr.length; i++) {
-        //$("#accessoryContainer").append($("<button>").attr("id", accessoriesArr[i]).attr("class", "iconOption").text(accessoriesArr[i]));
         $("#accessoryContainer").append($("<button>").attr("id", accessoriesArr[i]).attr("class", "iconOption").css("background-image", `url("images/accessoryPNGS/${accessoriesArr[i]}.png")`));
     
         $(`#${accessoriesArr[i]}`).on("click", (e)=> {
@@ -208,12 +203,13 @@ function generateAccessoryOptions() {
 
 function generateMazes(event) {
     $("#level_container").append($("#currentPos").get(0));
+    
     for(var i = 1; i < 26; i++ ) {
         $(`#maze_${i}`).empty()
         $("#maze_output").remove();
         $(`#lvlBtn_${i}`).css("background-color", "#123c80");
-    
     }
+
     $(`#${event.target.id}`).css("background-color", "#5c050c");
     
     var Maze, MazeGame;
@@ -227,14 +223,15 @@ function generateMazes(event) {
     
     var tempWidth = Number(event.target.innerText);
     var tempHeight = Number(event.target.innerText);
+    
     if(tempWidth == 1) {
         tempWidth++;
         tempHeight++;
     }
+
     if(tempHeight > 17) tempHeight = 17;
 
     makeMaze(`maze_${event.target.innerText}`, tempWidth, tempHeight);
-    //makeMaze(`maze_${event.target.innerText}`, 4, 4);
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------//
