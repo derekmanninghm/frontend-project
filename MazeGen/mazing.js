@@ -50,7 +50,7 @@ var Position = function(x, y) {
     mazeOutputDiv.appendChild(this.mazeMessage);
   
     mazeOutputDiv.style.width = this.mazeContainer.scrollWidth + "px";
-    this.setMessage("first find the key");
+    this.setMessage("Hint: first find the key");
   
     //this.mazeContainer.insertAdjacentElement("afterend", mazeOutputDiv);
     $("#level_container").append(mazeOutputDiv);
@@ -148,6 +148,8 @@ var Position = function(x, y) {
   
     /* move hero one step */
     //$(".hero").empty();
+    
+
     this.maze[this.heroPos].classList.remove("hero");
     this.maze[pos].classList.add("hero");
     //$(".hero").html($("<td>").attr("id", "currentPos"))
@@ -194,6 +196,7 @@ var Position = function(x, y) {
     switch(e.key)
     {
       case "ArrowLeft":
+        $("#currentPos").css("transform", "scaleX(-1)")
         this.mazeContainer.classList.remove("face-right");
         tryPos.y--;
         break;
@@ -203,6 +206,7 @@ var Position = function(x, y) {
         break;
   
       case "ArrowRight":
+        $("#currentPos").css("transform", "scaleX(1)")
         this.mazeContainer.classList.add("face-right");
         tryPos.y++;
         break;

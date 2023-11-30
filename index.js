@@ -105,7 +105,7 @@ function generateFaceOptions() {
 
 function generateFacialHairOptions() {
     for(var i = 0; i < facialHairsArr.length; i++) {
-        $("#faceContainer").append($("<button>").attr("id", facialHairsArr[i]).attr("class", "iconOption").text(facialHairsArr[i]));
+        $("#facialHairContainer").append($("<button>").attr("id", facialHairsArr[i]).attr("class", "iconOption").text(facialHairsArr[i]));
         
         $(`#${facialHairsArr[i]}`).on("click", (e)=> {
             currentCharacterOptions.facialHair = (e.target.id);
@@ -159,6 +159,55 @@ function generateAccessoryOptions() {
     }
 }
 
+function generateMazes(event) {
+    console.log(event.target.innerText)
+    $("#level_container").append($("#currentPos").get(0));
+    for(var i = 1; i < 26; i++ ) {
+        $(`#maze_${i}`).empty()
+        $("#maze_output").remove();
+        $(`#lvlBtn_${i}`).css("background-color", "#123c80");
+    
+    }
+    $(`#${event.target.id}`).css("background-color", "#5c050c");
+    
+    var Maze, MazeGame;
+
+    var makeMaze = (id, width, height) => {
+        Maze = new FancyMazeBuilder(width, height);
+        Maze.display(id);
+        MazeGame = new Mazing("maze");
+        $(".hero").append($("#currentPos").get(0));
+    };
+    
+    var tempWidth = Number(event.target.innerText);
+    var tempHeight = Number(event.target.innerText);
+    if(tempWidth == 1) {
+        tempWidth++;
+        tempHeight++;
+    }
+    if(tempHeight > 17) tempHeight = 17;
+
+    makeMaze(`maze_${event.target.innerText}`, tempWidth, tempHeight);
+    //makeMaze(`maze_${event.target.innerText}`, 4, 4);
+}
+
+for(var i = 1; i < 26; i++) {
+    $("#level_container").append($("<div>").attr("class", `maze_container`).attr("id", `maze_${i}`));
+}
+
+function generateLevelSelectors() {
+  for(var i = 1; i < 26; i++) {
+      var $levelSelector = $("<button>").attr("class", "levelSelectorBtn").attr("id", `lvlBtn_${i}`).text(i);
+
+      $("#lvlSelectorContainer").append($levelSelector);
+///////////////////////////////////////////////////////////////////
+      $levelSelector.on("click", generateMazes)
+  /////////////////////////////////////////////////////////////////////////////
+  }
+}
+
+
+
 generateCurrCharIcon()
 generateFacialHairOptions()
 generateHeadOptions()
@@ -166,30 +215,19 @@ generateFaceOptions()
 generateSkinOptions()
 generateAccessoryOptions()
 generateClothingOptions()
+generateLevelSelectors()
 
 
-var Maze, MazeGame;
 
-const makeMaze = (id, width, height, speech = false) => {
-    Maze = new FancyMazeBuilder(width, height);
-    Maze.display(id);
-    MazeGame = new Mazing("maze");
-    if(speech) {
-        MazeGame.enableSpeech();
-    }
-    $(".hero").append($("#currentPos").get(0));
-  };
-  
-  makeMaze("maze_container", 26, 17);
 
-//makes circular level btns on right side
-  function generateLevelSelectors() {
-    for(var i = 1; i < 26; i++) {
-        var $levelSelector = $("<button>").attr("class", "levelSelectorBtn").text(i);
+//makeMaze(`maze_container1`, 2, 2);
+//makeMaze(`maze_container${i}`, 4, 4);
+/*
+*/
 
-        $("#lvlSelectorContainer").append($levelSelector);
-    
-    }
-  }
-  generateLevelSelectors()
+  //makeMaze("maze_container", 4, 4);
+
+
+
+  //makes circular level btns on right side
 
