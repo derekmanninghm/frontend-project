@@ -43,8 +43,6 @@ const currentCharacterOptions = {
     facialHairProbability: '85',
 }
 
-//$('#maze_container').css({ transform: 'scale(2) translate(-25%, -25%)' });
-
 
 $("#randomize").on("click", (e)=> {
     console.log(currentCharacterOptions)
@@ -90,7 +88,8 @@ function generateCurrCharIcon() {
 
     })
 
-    $(".hero").css("background-image", `url("${apiURL}")`)
+    $("#currentPos").css("background-image", `url("${apiURL}")`)
+
 }
 
 function generateFaceOptions() {
@@ -178,6 +177,7 @@ const makeMaze = (id, width, height, speech = false) => {
     if(speech) {
         MazeGame.enableSpeech();
     }
+    $(".hero").append($("#currentPos").get(0));
   };
   
   makeMaze("maze_container", 26, 17);

@@ -51,9 +51,6 @@
     background-size: contain;
     transform: scale(3);
     z-index: 2;
-    
-    background-image: url("https://api.dicebear.com/7.x/open-peeps/svg?size=16");
-    
   }
   /*
   #maze div.hero::after {

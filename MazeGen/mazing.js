@@ -147,9 +147,12 @@ var Position = function(x, y) {
     }
   
     /* move hero one step */
-  
+    //$(".hero").empty();
     this.maze[this.heroPos].classList.remove("hero");
     this.maze[pos].classList.add("hero");
+    //$(".hero").html($("<td>").attr("id", "currentPos"))
+    //console.log($("#currentPos").get(0))
+    $(".hero").append($("#currentPos").get(0));
     this.heroPos = pos;
   
     /* check what was stepped on */

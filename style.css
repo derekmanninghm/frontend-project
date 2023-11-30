@@ -8,6 +8,14 @@ header {
     box-shadow: 1px 10px 11px 1px rgba(0,0,0,0.75);
 }
 
+#currentPos {
+    width: 72px;
+    background-size: contain;
+    /*
+    background-image:   url('https://api.dicebear.com/7.x/open-peeps/svg?seed=John&size=72');
+    */
+}
+
 #levelDisplay {
     width: 10%;
     top: 50px; 
