@@ -1,17 +1,8 @@
 import {FancyMazeBuilder} from "./MazeGen/fancy-maze-builder.js";
 
-////////////////////////////////////////////////////////////////////////////////////
-//import { schema } from './node_modules/@dicebear/open-peeps/lib/schema.js';
-/*
-const options = {
-  ...schema.properties,
-};
-*/
-///////////////////////////////////////////////////////////////////////////////////////////
-
-//console.log(options);
-
-
+$("#createCharBtn").on("click", (e)=> {
+    $("#charCreator").toggleClass("visible");
+})
 
 var skinColorArr = ['694d3d', 'ae5d29', 'd08b5b', 'ffdbb4'];
 
@@ -52,6 +43,9 @@ const currentCharacterOptions = {
     facialHairProbability: '85',
 }
 
+//$('#maze_container').css({ transform: 'scale(2) translate(-25%, -25%)' });
+
+
 $("#randomize").on("click", (e)=> {
     console.log(currentCharacterOptions)
     generateCurrCharIcon();
@@ -90,16 +84,14 @@ function generateCurrCharIcon() {
         }
     }
 
-    console.log(apiURL)
-
     $.get(`${apiURL+"&flip=true"}`, (d)=> {
     
         $("#currCharIcon").prepend(d.firstChild);
 
     })
-}
 
-generateCurrCharIcon()
+    $(".hero").css("background-image", `url("${apiURL}")`)
+}
 
 function generateFaceOptions() {
     for(var i = 0; i < facesArr.length; i++) {
@@ -168,6 +160,7 @@ function generateAccessoryOptions() {
     }
 }
 
+generateCurrCharIcon()
 generateFacialHairOptions()
 generateHeadOptions()
 generateFaceOptions()
@@ -187,4 +180,16 @@ const makeMaze = (id, width, height, speech = false) => {
     }
   };
   
-  makeMaze("maze_container", 12, 12);
+  makeMaze("maze_container", 26, 17);
+
+//makes circular level btns on right side
+  function generateLevelSelectors() {
+    for(var i = 1; i < 26; i++) {
+        var $levelSelector = $("<button>").attr("class", "levelSelectorBtn").text(i);
+
+        $("#lvlSelectorContainer").append($levelSelector);
+    
+    }
+  }
+  generateLevelSelectors()
+

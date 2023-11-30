@@ -52,7 +52,8 @@ var Position = function(x, y) {
     mazeOutputDiv.style.width = this.mazeContainer.scrollWidth + "px";
     this.setMessage("first find the key");
   
-    this.mazeContainer.insertAdjacentElement("afterend", mazeOutputDiv);
+    //this.mazeContainer.insertAdjacentElement("afterend", mazeOutputDiv);
+    $("#level_container").append(mazeOutputDiv);
   
     /* activate control keys */
   

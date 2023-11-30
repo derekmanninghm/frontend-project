@@ -15,8 +15,18 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
+<header>
+    <button id="createCharBtn">Character Creator</button>
+    <button id="lvlButton">Levels</button>
+</header>
 <body>
-    <div id="charCreator">
+    <div id="levelDisplay">
+        <p id="levelTxt">Levels</p>
+        <div id="horizontalDivider"></div>
+        <div id="lvlSelectorContainer"></div>
+    </div>
+
+    <div class="hidden" id="charCreator">
         <div class="categoryTitles" id="skinColor">Skin Color</div>
         <div id="skinColorContainer"></div>
 
@@ -42,7 +52,8 @@
         </div>
     </div>
     
-    
-    <div id="maze_container"><!-- --></div>
+    <div id="level_container">
+        <div id="maze_container"><!-- --></div>
+    </div>
 </body>
 </html>
