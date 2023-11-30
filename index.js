@@ -117,8 +117,8 @@ function generateFacialHairOptions() {
 
 function generateHeadOptions() {
     for(var i = 0; i < headsArr.length; i++) {
-        $("#headContainer").append($("<button>").attr("id", headsArr[i]).attr("class", "iconOption").text(headsArr[i]));
-        
+        //$("#headContainer").append($("<button>").attr("id", headsArr[i]).attr("class", "iconOption").text(headsArr[i]));
+        $("#headContainer").append($("<button>").attr("id", headsArr[i]).attr("class", "iconOption").css("background-image", `url("images/headPNGS/${headsArr[i]}.png")`));
         $(`#${headsArr[i]}`).on("click", (e)=> {
             currentCharacterOptions.head = (e.target.id)
             generateCurrCharIcon();
